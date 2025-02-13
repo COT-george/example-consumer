@@ -19,7 +19,8 @@ describe('API Pact test', () => {
       const expectedProduct = {
         id: '10',
         type: 'CREDIT_CARD',
-        name: '28 Degrees'
+        name: '28 Degrees',
+        colour: 'red'
       };
 
       // Uncomment to see this fail
@@ -57,11 +58,11 @@ describe('API Pact test', () => {
       // set up Pact interactions
 
       mockProvider
-        .given('a product with ID 111 does not exist')
+        .given('a product with ID 11 does not exist')
         .uponReceiving('a request to get a product')
         .withRequest({
           method: 'GET',
-          path: '/product/111',
+          path: '/product/11',
           headers: {
             Authorization: like('Bearer 2019-01-14T11:34:18.045Z')
           }
